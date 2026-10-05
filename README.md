@@ -1,37 +1,128 @@
-# Cinematic Developer Portfolio
+# Satyam Kumar — Developer Portfolio
 
-A dark cinematic React + Vite portfolio built around a magenta/red editorial portrait.
+A cinematic personal portfolio website showcasing my projects, technical skills, experience, and journey as a developer.
 
-## Run locally
+The site is designed with a dark editorial aesthetic, combining interactive motion, typography, and scroll-based visual effects while keeping the interface focused on content and usability.
 
-```bash
+## Tech Stack
+
+* **Frontend:** React
+* **Build Tool:** Vite
+* **Styling:** CSS
+* **Animation:** HTML5 Video + Scroll-driven interaction
+* **Development:** Node.js, npm
+
+## Features
+
+* Responsive portfolio layout
+* Cinematic hero section
+* Scroll-controlled character animation
+* Project showcase
+* Skills and technology section
+* Experience and background
+* Contact and social links
+* Optimized production build
+
+## Getting Started
+
+### Prerequisites
+
+Make sure you have Node.js and npm installed.
+
+### Installation
+
+Clone the repository:
+
+
+git clone <your-repository-url>
+cd satyam-portfolio
+
+
+Install dependencies:
+
+
 npm install
+
+
+Start the development server:
+
+
 npm run dev
-```
 
-Then open the local URL printed by Vite.
 
-## Build
+Open the local URL provided by Vite in your browser.
 
-```bash
+## Production Build
+
+Create an optimized production build:
+
+
 npm run build
-```
 
-## Replace links
 
-Edit `src/main.jsx` and replace the placeholder email/GitHub/LinkedIn links.
+To preview the production build locally:
 
-## Character animation
 
-The hero uses `public/assets/character-animation.mp4` as a scroll-controlled timeline. The video is deliberately silent and is scrubbed with the page scroll.
+npm run preview
 
-If you later generate a better AI image-to-video clip, replace:
 
-`public/assets/character-animation.mp4`
+## Project Structure
 
-with the new clip while keeping the same filename.
 
-Start/end reference images are also included:
+satyam-portfolio/
+├── public/
+│   └── assets/
+├── src/
+│   ├── main.jsx
+│   └── ...
+├── index.html
+├── package.json
+├── package-lock.json
+└── README.md
 
-- `portrait-start.png`
-- `portrait-end.png`
+
+## Animation
+
+The hero section uses:
+
+
+public/assets/character-animation.mp4
+
+
+The video is intentionally silent and is controlled through page scrolling to create a cinematic transition.
+
+The animation can be replaced with a different video while keeping the same filename and path.
+
+Reference images used for the animation are stored in the project assets.
+
+## Customization
+
+Update the personal information and social links in the source files, including:
+
+* Email
+* GitHub
+* LinkedIn
+* Project information
+* Skills
+* Experience
+* Profile content
+
+## Status
+
+🚧 **In active development**
+
+This portfolio is being built and refined progressively as I continue learning and developing new projects.
+
+## Author
+
+**Satyam Kumar**
+
+B.Tech Blockchain Engineering Student
+Interested in Web3, AI/ML, software development, and emerging technologies.
+
+* GitHub: <https://github.com/satyamk550/satyam-portfolio.git>
+* LinkedIn: <https://www.linkedin.com/in/satyamkumar-dev/>
+* Portfolio: <coming soon>
+---
+
+Built with React, Vite, and a lot of iteration.
