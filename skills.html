@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#080D24">
+    <meta name="description" content="Satyam Kumar's technical toolkit: programming, blockchain, computer science foundations and development tools.">
+    <title>Skills | Satyam Kumar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: dark;
+            --bg: #080D24;
+            --surface: #0D1530;
+            --surface-raised: #111B39;
+            --ink: #F2F4FF;
+            --muted: #AEB8D6;
+            --accent: #35D0F2;
+            --accent-ink: #07101F;
+            --line: rgba(242, 244, 255, .16);
+            --page-width: 1240px;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        *, *::before, *::after { box-sizing: inherit; }
+
+        body {
+            min-width: 320px;
+            margin: 0;
+            background:
+                radial-gradient(ellipse at 81% 5%, rgba(53, 208, 242, .075), transparent 30rem),
+                var(--bg);
+            color: var(--ink);
+            font-family: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
+        }
+
+        a { color: inherit; }
+
+        a:focus-visible,
+        button:focus-visible,
+        [tabindex="0"]:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 4px;
+        }
+
+        .page-shell {
+            width: min(100% - 48px, var(--page-width));
+            margin-inline: auto;
+        }
+
+        .site-header { border-bottom: 1px solid var(--line); }
+
+        .site-nav {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .logo {
+            flex: none;
+            font-size: 1.08rem;
+            font-weight: 700;
+            letter-spacing: -.02em;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            gap: 8px clamp(16px, 2.7vw, 34px);
+        }
+
+        .nav-links a {
+            padding: 8px 0;
+            border-bottom: 1.5px solid transparent;
+            color: var(--muted);
+            font-size: .98rem;
+            text-decoration: none;
+            transition: color .2s ease, border-color .2s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a[aria-current="page"] {
+            border-color: var(--accent);
+            color: var(--ink);
+        }
+
+        .page-intro {
+            padding-block: clamp(56px, 9vw, 100px) clamp(62px, 8vw, 94px);
+        }
+
+        .intro-topline {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 0 0 22px;
+            color: var(--accent);
+            font-size: .78rem;
+            font-weight: 700;
+            letter-spacing: .16em;
+        }
+
+        .intro-topline::before {
+            width: 26px;
+            height: 1px;
+            background: currentColor;
+            content: "";
+        }
+
+        .intro-heading-row {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .page-title {
+            margin: 0;
+            font-size: clamp(4rem, 10vw, 8.7rem);
+            font-weight: 800;
+            line-height: .88;
+            letter-spacing: -.075em;
+        }
+
+        .learning-badge {
+            flex: none;
+            margin-bottom: 8px;
+            padding: 10px 14px;
+            border: 1px solid rgba(53, 208, 242, .32);
+            border-radius: 999px;
+            color: var(--accent);
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: .07em;
+            white-space: nowrap;
+        }
+
+        .page-subtitle {
+            max-width: 55ch;
+            margin: 22px 0 0;
+            color: var(--muted);
+            font-size: clamp(1.04rem, 1.8vw, 1.25rem);
+            line-height: 1.6;
+        }
+
+        .section {
+            padding-block: clamp(62px, 8vw, 96px);
+            border-top: 1px solid var(--line);
+            scroll-margin-top: 24px;
+        }
+
+        .section-heading {
+            max-width: 760px;
+            margin: 0;
+            font-size: clamp(2.3rem, 5vw, 4.7rem);
+            line-height: .98;
+            letter-spacing: -.06em;
+        }
+
+        .section-description {
+            max-width: 56ch;
+            margin: 15px 0 0;
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.65;
+        }
+
+        .programming-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 12px;
+            margin-top: 34px;
+        }
+
+        .skill-card {
+            position: relative;
+            min-width: 0;
+            min-height: 132px;
+            padding: 20px;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            background: rgba(13, 21, 48, .68);
+            transition: transform .24s ease, border-color .24s ease, background-color .24s ease, box-shadow .24s ease;
+        }
+
+        .skill-card:hover,
+        .skill-card:focus-within {
+            transform: translateY(-3px);
+            border-color: rgba(53, 208, 242, .48);
+            background-color: var(--surface-raised);
+            box-shadow: 0 10px 30px rgba(3, 10, 29, .25), 0 0 22px rgba(53, 208, 242, .055);
+        }
+
+        .skill-card h3 {
+            margin: 0;
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: -.025em;
+        }
+
+        .skill-card p {
+            margin: 9px 0 0;
+            color: var(--muted);
+            font-size: .9rem;
+            line-height: 1.5;
+        }
+
+        .programming-grid .skill-card:last-child {
+            border-color: rgba(53, 208, 242, .28);
+            background:
+                linear-gradient(140deg, rgba(53, 208, 242, .075), transparent 75%),
+                var(--surface);
+        }
+
+        .web3-section {
+            position: relative;
+            overflow: hidden;
+            padding: clamp(26px, 5vw, 52px);
+            border: 1px solid rgba(53, 208, 242, .24);
+            border-radius: 20px;
+            background:
+                radial-gradient(ellipse at 86% 7%, rgba(53, 208, 242, .085), transparent 28rem),
+                linear-gradient(140deg, rgba(13, 21, 48, .96), rgba(8, 13, 36, .97));
+        }
+
+        .web3-section::after {
+            position: absolute;
+            top: -80px;
+            right: -55px;
+            width: 280px;
+            aspect-ratio: 1;
+            border: 1px solid rgba(53, 208, 242, .12);
+            border-radius: 50%;
+            content: "";
+            pointer-events: none;
+        }
+
+        .web3-heading {
+            position: relative;
+            z-index: 1;
+        }
+
+        .web3-flow {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            align-items: center;
+            gap: 18px;
+            margin-top: 38px;
+        }
+
+        .flow-step {
+            position: relative;
+            display: grid;
+            min-height: 104px;
+            align-content: center;
+            justify-items: center;
+            gap: 13px;
+            padding: 16px 12px;
+            border: 1px solid rgba(174, 184, 214, .18);
+            border-radius: 14px;
+            background: rgba(8, 13, 36, .66);
+            color: var(--ink);
+            font-size: .9rem;
+            font-weight: 600;
+            text-align: center;
+            transition: transform .23s ease, border-color .23s ease, box-shadow .23s ease;
+        }
+
+        .flow-step:hover,
+        .flow-step:focus-visible {
+            transform: translateY(-3px);
+            border-color: rgba(53, 208, 242, .5);
+            box-shadow: 0 0 20px rgba(53, 208, 242, .07);
+        }
+
+        .flow-step:not(:last-child)::after {
+            position: absolute;
+            top: 50%;
+            left: calc(100% + 1px);
+            width: 18px;
+            height: 1px;
+            background: rgba(53, 208, 242, .46);
+            transform-origin: left;
+            animation: connection 3.2s ease-in-out infinite;
+            content: "";
+        }
+
+        .flow-step:nth-child(2)::after { animation-delay: .25s; }
+        .flow-step:nth-child(3)::after { animation-delay: .5s; }
+        .flow-step:nth-child(4)::after { animation-delay: .75s; }
+
+        @keyframes connection {
+            0%, 100% { opacity: .42; transform: scaleX(.74); }
+            50% { opacity: .9; transform: scaleX(1); }
+        }
+
+        .flow-mark {
+            width: 19px;
+            height: 19px;
+            border: 1px solid var(--accent);
+            border-radius: 6px;
+            background: rgba(53, 208, 242, .1);
+            box-shadow: inset 0 0 12px rgba(53, 208, 242, .1);
+        }
+
+        .web3-topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 27px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .web3-topics li {
+            padding: 7px 11px;
+            border: 1px solid rgba(242, 244, 255, .13);
+            border-radius: 999px;
+            color: var(--muted);
+            font-size: .83rem;
+        }
+
+        .dsa-section { overflow: hidden; }
+
+        .algorithm-chain {
+            display: grid;
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+            gap: 0;
+            margin: 40px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .algorithm-node {
+            position: relative;
+            min-width: 0;
+            padding: 0 12px;
+            text-align: center;
+        }
+
+        .algorithm-node:first-child { padding-left: 0; }
+        .algorithm-node:last-child { padding-right: 0; }
+
+        .algorithm-node:not(:last-child)::after {
+            position: absolute;
+            top: 23px;
+            left: calc(50% + 39px);
+            width: calc(100% - 58px);
+            height: 1px;
+            background: rgba(53, 208, 242, .32);
+            content: "";
+        }
+
+        .algorithm-pill {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            width: 100%;
+            min-height: 48px;
+            place-items: center;
+            padding: 9px 10px;
+            border: 1px solid rgba(53, 208, 242, .28);
+            border-radius: 999px;
+            background: #0B1430;
+            color: var(--ink);
+            cursor: default;
+            font-size: .84rem;
+            font-weight: 600;
+            transition: transform .2s ease, border-color .2s ease, color .2s ease;
+        }
+
+        .algorithm-pill:hover,
+        .algorithm-pill:focus-visible {
+            transform: translateY(-3px);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .algorithm-node p {
+            min-height: 40px;
+            margin: 11px 0 0;
+            color: var(--muted);
+            font-size: .78rem;
+            line-height: 1.45;
+            opacity: 0;
+            transform: translateY(4px);
+            transition: opacity .2s ease, transform .2s ease;
+        }
+
+        .algorithm-node:hover p,
+        .algorithm-node:focus-within p { opacity: 1; transform: translateY(0); }
+
+        .core-grid {
+            display: grid;
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+            gap: 12px;
+            margin-top: 32px;
+        }
+
+        .core-card {
+            min-width: 0;
+            min-height: 158px;
+            padding: 19px;
+            border: 1px solid var(--line);
+            border-radius: 15px;
+            background: linear-gradient(145deg, rgba(17, 27, 57, .8), rgba(13, 21, 48, .68));
+            transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+        }
+
+        .core-card:nth-child(1),
+        .core-card:nth-child(2) { grid-column: span 2; }
+
+        .core-card:nth-child(3),
+        .core-card:nth-child(4),
+        .core-card:nth-child(5) { grid-column: span 2; }
+
+        .core-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(53, 208, 242, .42);
+            box-shadow: 0 10px 28px rgba(3, 10, 29, .2);
+        }
+
+        .core-card h3 {
+            margin: 0;
+            font-size: 1.02rem;
+            line-height: 1.25;
+            letter-spacing: -.015em;
+        }
+
+        .core-card p {
+            margin: 11px 0 0;
+            color: var(--muted);
+            font-size: .87rem;
+            line-height: 1.55;
+        }
+
+        .tools-layout {
+            display: grid;
+            grid-template-columns: minmax(190px, .62fr) minmax(0, 1.38fr);
+            align-items: start;
+            gap: clamp(30px, 8vw, 105px);
+        }
+
+        .tools-intro {
+            position: sticky;
+            top: 28px;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .tool-card {
+            display: flex;
+            min-height: 78px;
+            align-items: center;
+            gap: 13px;
+            padding: 16px;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            background: rgba(13, 21, 48, .66);
+            transition: transform .22s ease, border-color .22s ease, background-color .22s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(53, 208, 242, .42);
+            background-color: var(--surface-raised);
+        }
+
+        .tool-mark {
+            display: grid;
+            width: 32px;
+            height: 32px;
+            flex: none;
+            place-items: center;
+            border: 1px solid rgba(53, 208, 242, .25);
+            border-radius: 10px;
+            color: var(--accent);
+            font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+            font-size: .78rem;
+            font-weight: 700;
+        }
+
+        .tool-card strong {
+            font-size: .92rem;
+            font-weight: 600;
+        }
+
+        .soft-section { padding-block: clamp(54px, 7vw, 78px); }
+
+        .soft-layout {
+            display: grid;
+            grid-template-columns: minmax(220px, .72fr) minmax(0, 1.28fr);
+            gap: clamp(28px, 7vw, 84px);
+        }
+
+        .soft-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px 26px;
+        }
+
+        .soft-item {
+            padding: 13px 0 15px;
+            border-bottom: 1px solid rgba(242, 244, 255, .12);
+        }
+
+        .soft-item h3 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 650;
+        }
+
+        .soft-item p {
+            margin: 5px 0 0;
+            color: var(--muted);
+            font-size: .86rem;
+            line-height: 1.5;
+        }
+
+        .maturity-section { padding-block: clamp(62px, 8vw, 94px); border-top: 1px solid var(--line); }
+
+        .maturity-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr .72fr;
+            gap: 14px;
+            margin-top: 32px;
+        }
+
+        .maturity-column {
+            padding: 21px;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            background: rgba(13, 21, 48, .52);
+        }
+
+        .maturity-column:first-child {
+            border-color: rgba(53, 208, 242, .24);
+            background: linear-gradient(145deg, rgba(53, 208, 242, .07), rgba(13, 21, 48, .62));
+        }
+
+        .maturity-column h3 {
+            margin: 0 0 14px;
+            color: var(--accent);
+            font-size: .73rem;
+            letter-spacing: .1em;
+        }
+
+        .maturity-column p {
+            margin: 0 0 16px;
+            color: var(--muted);
+            font-size: .84rem;
+            line-height: 1.5;
+        }
+
+        .maturity-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .maturity-tags li {
+            padding: 6px 9px;
+            border: 1px solid rgba(242, 244, 255, .12);
+            border-radius: 999px;
+            color: var(--ink);
+            font-size: .78rem;
+        }
+
+        .technology-map { padding-block: clamp(62px, 8vw, 96px); border-top: 1px solid var(--line); }
+
+        .map-root {
+            position: relative;
+            width: max-content;
+            margin: 30px auto 0;
+            padding: 12px 24px;
+            border: 1px solid rgba(53, 208, 242, .56);
+            border-radius: 999px;
+            background: rgba(53, 208, 242, .08);
+            box-shadow: 0 0 26px rgba(53, 208, 242, .08);
+            color: var(--accent);
+            font-size: .8rem;
+            font-weight: 700;
+            letter-spacing: .15em;
+        }
+
+        .map-root::after {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            height: 30px;
+            border-left: 1px solid rgba(53, 208, 242, .34);
+            content: "";
+        }
+
+        .map-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 13px;
+            margin-top: 30px;
+        }
+
+        .map-group {
+            position: relative;
+            min-width: 0;
+            padding: 20px 17px;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            background: rgba(13, 21, 48, .65);
+            transition: border-color .22s ease, transform .22s ease;
+        }
+
+        .map-group::before {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            height: 31px;
+            border-left: 1px solid rgba(53, 208, 242, .25);
+            content: "";
+        }
+
+        .map-group:hover {
+            transform: translateY(-3px);
+            border-color: rgba(53, 208, 242, .38);
+        }
+
+        .map-group h3 {
+            margin: 0 0 14px;
+            color: var(--accent);
+            font-size: .72rem;
+            letter-spacing: .1em;
+        }
+
+        .map-nodes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .map-nodes span {
+            padding: 6px 8px;
+            border: 1px solid rgba(242, 244, 255, .11);
+            border-radius: 999px;
+            color: var(--muted);
+            font-size: .78rem;
+        }
+
+        .current-learning {
+            display: grid;
+            grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+            align-items: center;
+            gap: clamp(24px, 7vw, 84px);
+            padding: clamp(28px, 5vw, 52px);
+            border: 1px solid rgba(53, 208, 242, .23);
+            border-radius: 19px;
+            background:
+                radial-gradient(ellipse at 86% 18%, rgba(53, 208, 242, .075), transparent 24rem),
+                var(--surface);
+        }
+
+        .learning-label {
+            margin: 0 0 12px;
+            color: var(--accent);
+            font-size: .73rem;
+            font-weight: 700;
+            letter-spacing: .13em;
+        }
+
+        .current-learning h2 {
+            margin: 0;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            line-height: 1;
+            letter-spacing: -.055em;
+        }
+
+        .current-learning p:last-child {
+            max-width: 50ch;
+            margin: 0;
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.65;
+        }
+
+        .closing {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 32px;
+            padding-block: clamp(68px, 10vw, 120px);
+            border-top: 1px solid var(--line);
+        }
+
+        .closing h2 {
+            max-width: 13ch;
+            margin: 0;
+            font-size: clamp(2.45rem, 6vw, 5.4rem);
+            line-height: .96;
+            letter-spacing: -.065em;
+        }
+
+        .closing h2 span { color: var(--accent); }
+
+        .closing-actions { display: flex; flex: none; flex-wrap: wrap; gap: 12px; }
+
+        .button {
+            display: inline-flex;
+            min-height: 48px;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            padding: 12px 20px;
+            border: 1px solid var(--ink);
+            border-radius: 999px;
+            color: var(--ink);
+            font-size: .98rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease;
+        }
+
+        .button:hover { transform: translateY(-2px); }
+
+        .button-primary {
+            border-color: var(--accent);
+            background: var(--accent);
+            color: var(--accent-ink);
+        }
+
+        .button-secondary:hover { background: var(--ink); color: var(--bg); }
+
+        .site-footer {
+            padding-block: 20px 28px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: .9rem;
+        }
+
+        .site-footer a {
+            color: var(--muted);
+            text-decoration-color: rgba(53, 208, 242, .45);
+            text-underline-offset: 3px;
+        }
+
+        @media (max-width: 960px) {
+            .programming-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+            .core-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+            .core-card { grid-column: span 2 !important; }
+            .core-card:nth-child(4),
+            .core-card:nth-child(5) { grid-column: span 3 !important; }
+            .tools-layout { grid-template-columns: minmax(180px, .7fr) minmax(0, 1.3fr); gap: 32px; }
+            .tools-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .map-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .map-group:nth-child(3)::before { display: none; }
+            .map-group:nth-child(n+3) { margin-top: 8px; }
+        }
+
+        @media (max-width: 700px) {
+            .page-shell { width: min(100% - 36px, var(--page-width)); }
+            .site-nav { min-height: 68px; align-items: flex-start; flex-direction: column; gap: 4px; padding-block: 14px; }
+            .nav-links { justify-content: flex-start; gap: 4px 20px; }
+            .nav-links a { font-size: .92rem; }
+            .page-intro { padding-top: 48px; }
+            .intro-heading-row { align-items: flex-start; flex-direction: column; gap: 18px; }
+            .page-title { font-size: clamp(3.7rem, 16vw, 6rem); }
+            .learning-badge { margin-bottom: 0; }
+            .section { padding-block: 54px; }
+            .programming-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; margin-top: 24px; }
+            .skill-card { min-height: 112px; padding: 15px; border-radius: 14px; }
+            .skill-card h3 { font-size: 1.03rem; }
+            .skill-card p { margin-top: 6px; font-size: .82rem; }
+            .web3-section { padding: 23px 18px; border-radius: 17px; }
+            .web3-flow { grid-template-columns: minmax(0, 1fr); gap: 9px; margin-top: 26px; }
+            .flow-step { display: flex; min-height: 56px; justify-content: flex-start; gap: 12px; padding: 11px 14px; text-align: left; }
+            .flow-step:not(:last-child)::after {
+                top: calc(100% + 1px);
+                left: 26px;
+                width: 1px;
+                height: 9px;
+                transform: none;
+                animation: none;
+            }
+            .web3-topics { margin-top: 20px; }
+            .algorithm-chain { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 25px; }
+            .algorithm-node,
+            .algorithm-node:first-child,
+            .algorithm-node:last-child { padding: 0; }
+            .algorithm-node::after { display: none; }
+            .algorithm-pill { min-height: 42px; }
+            .algorithm-node p { min-height: 0; margin: 7px 4px 3px; font-size: .74rem; opacity: 1; transform: none; }
+            .core-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; margin-top: 24px; }
+            .core-card,
+            .core-card:nth-child(n) { grid-column: auto !important; min-height: 140px; padding: 15px; }
+            .core-card:last-child { grid-column: 1 / -1 !important; min-height: auto; }
+            .tools-layout,
+            .soft-layout { grid-template-columns: minmax(0, 1fr); gap: 23px; }
+            .tools-intro { position: static; }
+            .tools-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+            .tool-card { min-height: 66px; gap: 10px; padding: 11px; }
+            .tool-mark { width: 29px; height: 29px; }
+            .soft-grid { gap: 6px 18px; }
+            .maturity-grid { grid-template-columns: minmax(0, 1fr); gap: 9px; }
+            .maturity-column { padding: 17px; }
+            .map-grid { grid-template-columns: minmax(0, 1fr); gap: 9px; margin-top: 24px; }
+            .map-group { padding: 17px; }
+            .map-group::before { height: 25px; }
+            .map-group:nth-child(n) { margin-top: 0; }
+            .current-learning { grid-template-columns: minmax(0, 1fr); gap: 17px; padding: 24px 20px; }
+            .closing { align-items: flex-start; flex-direction: column; }
+            .closing-actions { width: 100%; }
+            .closing-actions .button { flex: 1 1 140px; }
+        }
+
+        @media (max-width: 380px) {
+            .programming-grid { grid-template-columns: minmax(0, 1fr); }
+            .skill-card { min-height: 90px; }
+            .algorithm-chain { grid-template-columns: minmax(0, 1fr); }
+            .algorithm-node { display: grid; grid-template-columns: minmax(100px, .8fr) minmax(0, 1.2fr); align-items: center; gap: 12px; }
+            .algorithm-node p { margin: 0; text-align: left; }
+            .core-grid { grid-template-columns: minmax(0, 1fr); }
+            .core-card,
+            .core-card:nth-child(n),
+            .core-card:last-child { grid-column: auto !important; min-height: 0; }
+            .soft-grid { grid-template-columns: minmax(0, 1fr); }
+            .tools-grid { grid-template-columns: minmax(0, 1fr); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            :root { scroll-behavior: auto; }
+            *, *::before, *::after {
+                scroll-behavior: auto !important;
+                animation-duration: .01ms !important;
+                transition-duration: .01ms !important;
+            }
+            .algorithm-node p { opacity: 1; transform: none; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="site-nav page-shell" aria-label="Main navigation">
+            <a class="logo" href="index.html">Satyam Kumar</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="projects.html">Projects</a>
+                <a href="skills.html" aria-current="page">Skills</a>
+                <a href="experience.html">Experience</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page-shell">
+        <section class="page-intro" aria-labelledby="page-title">
+            <p class="intro-topline">TECHNICAL TOOLKIT</p>
+            <div class="intro-heading-row">
+                <h1 class="page-title" id="page-title">What I Work With</h1>
+                <span class="learning-badge">CURRENTLY LEARNING <span aria-hidden="true">→</span> AI / ML</span>
+            </div>
+            <p class="page-subtitle">A growing technical foundation built through coursework, projects, experimentation and hands-on development.</p>
+        </section>
+
+        <section class="section" id="programming" aria-labelledby="programming-title">
+            <h2 class="section-heading" id="programming-title">Programming</h2>
+            <p class="section-description">Languages and web technologies I use while learning through coursework and projects.</p>
+            <div class="programming-grid">
+                <article class="skill-card"><h3>Python</h3><p>Backend, scripting &amp; development</p></article>
+                <article class="skill-card"><h3>Java</h3><p>Programming &amp; DSA</p></article>
+                <article class="skill-card"><h3>C++</h3><p>Programming fundamentals</p></article>
+                <article class="skill-card"><h3>JavaScript</h3><p>Web development &amp; interaction</p></article>
+                <article class="skill-card"><h3>HTML</h3><p>Web structure</p></article>
+                <article class="skill-card"><h3>CSS</h3><p>UI &amp; styling</p></article>
+                <article class="skill-card"><h3>Solidity</h3><p>Smart contracts</p></article>
+            </div>
+        </section>
+
+        <section class="section" id="blockchain" aria-labelledby="blockchain-title">
+            <div class="web3-section">
+                <div class="web3-heading">
+                    <h2 class="section-heading" id="blockchain-title">Blockchain &amp; Web3</h2>
+                    <p class="section-description">My degree specialization, explored through smart contract and credential verification project work.</p>
+                </div>
+                <div class="web3-flow" aria-label="Blockchain and Web3 concepts">
+                    <div class="flow-step" tabindex="0"><span class="flow-mark" aria-hidden="true"></span>Smart Contract</div>
+                    <div class="flow-step" tabindex="0"><span class="flow-mark" aria-hidden="true"></span>Ethereum</div>
+                    <div class="flow-step" tabindex="0"><span class="flow-mark" aria-hidden="true"></span>Wallet</div>
+                    <div class="flow-step" tabindex="0"><span class="flow-mark" aria-hidden="true"></span>Web3 Application</div>
+                    <div class="flow-step" tabindex="0"><span class="flow-mark" aria-hidden="true"></span>Decentralized Storage</div>
+                </div>
+                <ul class="web3-topics" aria-label="Blockchain technologies">
+                    <li>Blockchain Fundamentals</li><li>Smart Contracts</li><li>Ethereum</li><li>IPFS</li><li>MetaMask</li><li>ethers.js</li><li>Remix IDE</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section dsa-section" id="dsa" aria-labelledby="dsa-title">
+            <h2 class="section-heading" id="dsa-title">Data Structures &amp; Algorithms</h2>
+            <p class="section-description">Core topics I'm studying as part of my computer science foundation.</p>
+            <ol class="algorithm-chain">
+                <li class="algorithm-node"><div class="algorithm-pill" tabindex="0" aria-describedby="dsa-arrays">Arrays</div><p id="dsa-arrays">Indexed collection of elements</p></li>
+                <li class="algorithm-node"><div class="algorithm-pill" tabindex="0" aria-describedby="dsa-strings">Strings</div><p id="dsa-strings">Sequences of characters</p></li>
+                <li class="algorithm-node"><div class="algorithm-pill" tabindex="0" aria-describedby="dsa-hash">Hash Tables</div><p id="dsa-hash">Key-value lookup structure</p></li>
+                <li class="algorithm-node"><div class="algorithm-pill" tabindex="0" aria-describedby="dsa-stacks">Stacks</div><p id="dsa-stacks">LIFO-based data structure</p></li>
+                <li class="algorithm-node"><div class="algorithm-pill" tabindex="0" aria-describedby="dsa-linked">Linked Lists</div><p id="dsa-linked">Node-based sequential structure</p></li>
+                <li class="algorithm-node"><div class="algorithm-pill" tabindex="0" aria-describedby="dsa-recursion">Recursion</div><p id="dsa-recursion">Solving problems through repeated self-calls</p></li>
+            </ol>
+        </section>
+
+        <section class="section" id="core-cs" aria-labelledby="core-title">
+            <h2 class="section-heading" id="core-title">Core CS</h2>
+            <p class="section-description">Foundational subjects from my computer science studies.</p>
+            <div class="core-grid">
+                <article class="core-card"><h3>Object-Oriented Programming</h3><p>Classes, objects and core programming concepts.</p></article>
+                <article class="core-card"><h3>DBMS</h3><p>Database concepts, queries and data management.</p></article>
+                <article class="core-card"><h3>Operating Systems</h3><p>Processes, memory and system fundamentals.</p></article>
+                <article class="core-card"><h3>Computer Networks</h3><p>Networking concepts and communication.</p></article>
+                <article class="core-card"><h3>Computer Organization and Architecture</h3><p>How computer systems are structured and operate.</p></article>
+            </div>
+        </section>
+
+        <section class="section" id="tools" aria-labelledby="tools-title">
+            <div class="tools-layout">
+                <div class="tools-intro">
+                    <h2 class="section-heading" id="tools-title">Tools I Use</h2>
+                    <p class="section-description">Tools I've used across coding, collaboration and project environments.</p>
+                </div>
+                <div class="tools-grid">
+                    <article class="tool-card"><span class="tool-mark" aria-hidden="true">git</span><strong>Git</strong></article>
+                    <article class="tool-card"><span class="tool-mark" aria-hidden="true">GH</span><strong>GitHub</strong></article>
+                    <article class="tool-card"><span class="tool-mark" aria-hidden="true">&gt;_</span><strong>VS Code</strong></article>
+                    <article class="tool-card"><span class="tool-mark" aria-hidden="true">D</span><strong>Docker</strong></article>
+                    <article class="tool-card"><span class="tool-mark" aria-hidden="true">WSL</span><strong>WSL</strong></article>
+                    <article class="tool-card"><span class="tool-mark" aria-hidden="true">CTF</span><strong>CTFd</strong></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section soft-section" id="how-i-work" aria-labelledby="soft-title">
+            <div class="soft-layout">
+                <div>
+                    <h2 class="section-heading" id="soft-title">How I Work</h2>
+                    <p class="section-description">Habits I bring to learning and shared technical work.</p>
+                </div>
+                <div class="soft-grid">
+                    <article class="soft-item"><h3>Communication</h3><p>Explain technical ideas clearly.</p></article>
+                    <article class="soft-item"><h3>Problem Solving</h3><p>Break problems into smaller, workable pieces.</p></article>
+                    <article class="soft-item"><h3>Team Collaboration</h3><p>Work effectively on shared technical projects.</p></article>
+                    <article class="soft-item"><h3>Leadership</h3><p>Take ownership when coordinating technical work.</p></article>
+                    <article class="soft-item"><h3>Accountability</h3><p>Own tasks and follow them through.</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="maturity-section" aria-labelledby="maturity-title">
+            <h2 class="section-heading" id="maturity-title">Where I'm Building Depth</h2>
+            <p class="section-description">A practical snapshot of what I've used, what I'm strengthening and what I'm exploring next.</p>
+            <div class="maturity-grid">
+                <article class="maturity-column">
+                    <h3>WORKING WITH</h3>
+                    <p>Technologies I've used in projects and development work.</p>
+                    <ul class="maturity-tags"><li>Python</li><li>JavaScript</li><li>Solidity</li><li>HTML</li><li>CSS</li><li>Ethereum</li><li>IPFS</li><li>MetaMask</li><li>ethers.js</li><li>Git</li><li>GitHub</li><li>Docker</li><li>CTFd</li></ul>
+                </article>
+                <article class="maturity-column">
+                    <h3>BUILDING FOUNDATIONS</h3>
+                    <p>Coursework and core concepts I'm actively strengthening.</p>
+                    <ul class="maturity-tags"><li>Java</li><li>C++</li><li>DSA</li><li>DBMS</li><li>Operating Systems</li><li>Computer Networks</li><li>OOP</li><li>COA</li></ul>
+                </article>
+                <article class="maturity-column">
+                    <h3>CURRENTLY EXPLORING</h3>
+                    <p>A learning area, not an established skill.</p>
+                    <ul class="maturity-tags"><li>AI / ML</li></ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="technology-map" aria-labelledby="map-title">
+            <h2 class="section-heading" id="map-title">Technology Map</h2>
+            <p class="section-description">A view of the tools and foundations that connect my current learning.</p>
+            <div class="map-root">SATYAM</div>
+            <div class="map-grid">
+                <article class="map-group">
+                    <h3>PROGRAMMING</h3>
+                    <div class="map-nodes"><span>Python</span><span>Java</span><span>C++</span><span>JavaScript</span></div>
+                </article>
+                <article class="map-group">
+                    <h3>WEB3</h3>
+                    <div class="map-nodes"><span>Solidity</span><span>Ethereum</span><span>IPFS</span><span>ethers.js</span></div>
+                </article>
+                <article class="map-group">
+                    <h3>DEVELOPMENT</h3>
+                    <div class="map-nodes"><span>Git</span><span>GitHub</span><span>Docker</span><span>WSL</span><span>CTFd</span></div>
+                </article>
+                <article class="map-group">
+                    <h3>CS FOUNDATIONS</h3>
+                    <div class="map-nodes"><span>DSA</span><span>DBMS</span><span>OS</span><span>CN</span><span>COA</span></div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="current-learning-title">
+            <div class="current-learning">
+                <div>
+                    <p class="learning-label">CURRENTLY LEARNING</p>
+                    <h2 id="current-learning-title">AI / ML</h2>
+                </div>
+                <p>Expanding my software development foundation toward machine learning and intelligent systems.</p>
+            </div>
+        </section>
+
+        <section class="closing" aria-labelledby="closing-title">
+            <h2 id="closing-title">Skills are only useful when you <span>build with them.</span></h2>
+            <div class="closing-actions">
+                <a class="button button-primary" href="projects.html">View Projects <span aria-hidden="true">→</span></a>
+                <a class="button button-secondary" href="https://github.com/satyamk550" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">→</span></a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="page-shell"><a href="index.html">Satyam Kumar</a></div>
+    </footer>
+</body>
+</html>
