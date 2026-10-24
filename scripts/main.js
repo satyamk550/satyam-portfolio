@@ -181,3 +181,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initTerminal();
   initMobileNavigation();
 });
+const __initBackground = initBackground;
+initBackground = function initBackgroundWithDeviceGuard() {
+  if (window.innerWidth < 768 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  __initBackground();
+};

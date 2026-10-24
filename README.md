@@ -1,6 +1,14 @@
 # Satyam Kumar - Portfolio
 
+## Live site
+
+TODO_SITE_URL
+
 A personal portfolio for presenting my background, skills, projects, and contact details, with a cyber/Web3 visual style and an interactive terminal section.
+
+## Screenshot
+
+Add a screenshot at `docs/screenshot.png`.
 
 ## View locally
 
@@ -28,6 +36,11 @@ Open `index.html` in a browser. The site is static and does not need a build ste
 - [Three.js](https://threejs.org/) for the animated background
 - [Font Awesome](https://fontawesome.com/) for icons
 - [Google Fonts](https://fonts.google.com/) for Space Grotesk and JetBrains Mono
+- Designed with Three.js & Cyber-Web3 Architecture
+
+## License
+
+TODO_CHOOSE_LICENSE (for example, MIT)
 
 ## Deployment
 

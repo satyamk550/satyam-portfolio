@@ -540,3 +540,20 @@
 /* Certification links keep the existing portfolio color palette. */
 .certification-link { color: var(--accent-cyan); text-decoration: none; }
 .certification-link:hover, .certification-link:focus-visible { color: var(--accent-pink); text-decoration: underline; }
+.btn-small { padding: 0.5rem 0.75rem; font-size: 0.76rem; gap: 0.4rem; }
+.project-actions { display: flex; flex-wrap: wrap; gap: 0.55rem; margin: 0 0 1.2rem; }
+.project-impact { margin-top: -0.65rem !important; }
+.coding-profile-link { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.8rem; color: var(--accent-cyan); font-family: var(--font-mono); font-size: 0.78rem; text-decoration: none; }
+.coding-profile-link:hover { color: var(--accent-pink); text-decoration: underline; }
+.terminal-command-hint { color: #fff; }
+.terminal-input-row { padding: 0 1.2rem 1.2rem; display: flex; align-items: center; gap: 0.5rem; }
+.subsection-title { margin-bottom: 1.5rem; }
+.subsection-title-pink i { color: var(--accent-pink); }
+.subsection-title-cyan i { color: var(--accent-cyan); }
+.milestone-group { margin-bottom: 1.2rem; }
+.milestone-leadership { margin-top: 1.5rem; margin-bottom: 0; }
+.milestone-heading { font-size: 0.95rem; color: #fff; margin-bottom: 0.4rem; }
+.milestone-item { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.2rem; }
+.footer-credit { margin-top: 0.4rem; font-size: 0.78rem; opacity: 0.6; }
+@media (min-width: 901px) { .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 767px) { body { background-image: linear-gradient(145deg, #07070d 0%, #101024 52%, #07070d 100%); } #bg-canvas { display: none; } }
